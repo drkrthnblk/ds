@@ -1,5 +1,6 @@
 https://leetcode.com/problems/contains-duplicate/
 
+# solution 1
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         
@@ -14,4 +15,15 @@ class Solution:
             if ele == prev:
                 return True
             prev = ele
+        return False
+        
+
+# solution 2:
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        visited = set()
+        for ele in nums:
+            if ele in visited:
+                return True
+            visited.add(ele)
         return False
