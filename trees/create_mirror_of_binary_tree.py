@@ -8,13 +8,13 @@ https://leetcode.com/problems/invert-binary-tree/
 #         self.right = right
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if not root:
+            return
         
-        if root:
-            self.invertTree(root.left)
-            self.invertTree(root.right)
-            
-            temp = root.left
-            root.left = root.right
-            root.right = temp
+        # traverse in postorder and swap left and right subtree
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+
+        root.left, root.right = root.right, root.left
         return root
             
